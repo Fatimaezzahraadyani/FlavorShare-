@@ -13,17 +13,37 @@ export class RecipeDetailComponent implements OnInit{
 
   recipe : any;
 
+  ingredientIndices : number [] = [];
+
   constructor(
     private route : ActivatedRoute,
     private  recepeService : RecepeService){}
 
 
-    ngOnInit() {
+
+
+    ngOnInit(): void {
       const id = this.route.snapshot.paramMap.get('id');
       if (id) {
         this.recepeService.getRecipeById(id).subscribe(data => {
-          this.recipe = data.meals[0]; // retourne { meals: [...] }  objet
+          this.recipe = data;
+          this.ingredientIndices = this.getIngredientIndices(data);
         });
       }
     }
-}
+    
+    getIngredientIndices(recipe: any): number[] {
+      const indices = [];
+      for (let i = 1; i <= 20; i++) {
+        if (recipe[`strIngredient${i}`]) {
+          indices.push(i);
+        }
+      }
+      return indices;
+    }
+    
+  
+  }    
+    
+
+

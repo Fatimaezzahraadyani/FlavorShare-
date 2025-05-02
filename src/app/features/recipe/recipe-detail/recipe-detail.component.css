@@ -1,67 +1,69 @@
-@import url("https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap");
 
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
 
-body {
-	font-family: "Baloo Tammudu 2", cursive;
-	font-size: 1.2rem;
-	line-height: 1.5rem;
-}
-
-figure {
-	margin: 0;
-}
-
-img {
-	border-radius: 2px;
-	width: 100%;
-	height: auto;
-}
-
-h1 {
-	text-align: center;
-	line-height: 3rem;
-}
-
-ul li,
-ol li {
-	margin: 1rem 0;
-}
-
-.container {
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-areas:
-		"main-photo"
-		"recipe";
-	column-gap: 2rem;
-	margin: 1rem;
-	min-height: 100vh;
+ .recipe-container {
+	max-width: 800px;
+	margin: 2rem auto;
+	padding: 2rem;
 	background: #fff;
-	box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
-	padding: 1rem;
-}
-
-.main-photo {
-	grid-area: main-photo;
-}
-
-.recipe-container {
-	grid-area: recipe;
-}
-
-/* Large devices (desktops, 992px and up)*/
-@media (min-width: 992px) {
-	.container {
-		margin: 10px auto;
-		max-width: 980px;
-		grid-template-areas: "recipe main-photo";
-		grid-template-columns: 8fr 4fr;
-		grid-template-rows: 1fr;
-		padding: 2rem;
-	}
-}
+	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	border-radius: 12px;
+	font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .header {
+	text-align: center;
+	margin-bottom: 1.5rem;
+  }
+  
+  .header h1 {
+	font-size: 2.5rem;
+	margin: 0;
+  }
+  
+  .category {
+	color: #777;
+	font-style: italic;
+  }
+  
+  .recipe-image {
+	width: 100%;
+	max-height: 400px;
+	object-fit: cover;
+	border-radius: 10px;
+	margin: 1rem 0;
+  }
+  
+  .ingredients,
+  .instructions {
+	margin-top: 2rem;
+  }
+  
+  .ingredients h2,
+  .instructions h2 {
+	border-bottom: 2px solid #f2b03e;
+	padding-bottom: 0.5rem;
+	margin-bottom: 1rem;
+  }
+  
+  ul {
+	list-style: disc;
+	padding-left: 1.5rem;
+  }
+  
+  .btn {
+	display: inline-block;
+	margin-top: 2rem;
+	padding: 0.75rem 1.5rem;
+	background-color: #f2b03e;
+	color: #fff;
+	border-radius: 8px;
+	text-decoration: none;
+	font-weight: bold;
+	text-align: center;
+  }
+  
+  .btn:hover {
+	background-color: #e59a1e;
+  }
+  
+  

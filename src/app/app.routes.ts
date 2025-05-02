@@ -5,5 +5,7 @@ import { RecipeDetailComponent } from './features/recipe/recipe-detail/recipe-de
 export const routes: Routes = [
     { path : '' ,component: HomeComponent},
     { path : 'recipe/detail/:id', component: RecipeDetailComponent},
+    { path: 'recipe/:id', component: RecipeDetailComponent }
+
 
 ];

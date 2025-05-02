@@ -19,7 +19,11 @@ export class RecepeService {
 
   getRecipeById(id: string): Observable<any> {
     return this.Http.get<any>(`${this.url}/lookup.php?i=${id}`)
-      .pipe(map(response => response.meals[0])); // détail est dans un tableau de 1 élément
+      .pipe(map(response => {
+        console.log(response); // ← ici
+        return response.meals[0];
+      }))
+      
   }
 
 }
