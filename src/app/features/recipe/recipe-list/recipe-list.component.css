@@ -1,0 +1,10 @@
+.rating span {
+    font-size: 2rem;
+    color: gray;
+    cursor: pointer;
+  }
+  
+  .rating span.filled {
+    color: gold;
+  }
+  

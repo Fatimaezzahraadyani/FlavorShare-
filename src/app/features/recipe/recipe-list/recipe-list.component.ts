@@ -13,6 +13,9 @@ export class RecipeListComponent implements OnInit{
 
   recipes : any[] = [];
 
+  searchName : string = '';
+
+  
   constructor(private recepeService : RecepeService) {}
 
   ngOnInit(): void {
@@ -20,4 +23,12 @@ export class RecipeListComponent implements OnInit{
       this.recipes = data;
     });
   }
+
+  getRating(id : string):number{
+    const stored = localStorage.getItem(`rating_${id}`);
+    return stored ? +stored : 0;
+  }
+
+
+  
 }

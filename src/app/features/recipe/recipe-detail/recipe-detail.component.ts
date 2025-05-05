@@ -15,6 +15,8 @@ export class RecipeDetailComponent implements OnInit{
 
   ingredientIndices : number [] = [];
 
+  rating : number = 0;
+
   constructor(
     private route : ActivatedRoute,
     private  recepeService : RecepeService){}
@@ -25,6 +27,10 @@ export class RecipeDetailComponent implements OnInit{
     ngOnInit(): void {
       const id = this.route.snapshot.paramMap.get('id');
       if (id) {
+
+        const savedRating = localStorage.getItem(`rating_${id}`);
+        this.rating = savedRating ? +savedRating : 0;
+
         this.recepeService.getRecipeById(id).subscribe(data => {
           this.recipe = data;
           this.ingredientIndices = this.getIngredientIndices(data);
@@ -42,7 +48,13 @@ export class RecipeDetailComponent implements OnInit{
       return indices;
     }
     
+    setRating(value : number){
+      this.rating = value ;
+      const id = this.recipe.idMeal;
+      localStorage.setItem(`rating_${id}`,value.toString())
+    }
   
+
   }    
     
 
